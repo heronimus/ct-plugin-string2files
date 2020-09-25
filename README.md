@@ -6,7 +6,7 @@ This plugin heavily inspired by:
 - [tam7t/certdump.go Gist](https://gist.github.com/tam7t/1b45125ae4de13b3fc6fd0455954c08e)
 - [ekristen/consul-template-plugin-savetofile](https://github.com/ekristen/consul-template-plugin-savetofile)
 
-Both of above code already working nice, but I do some modification and mainly an experiment to try new language ([V-lang](https://github.com/vlang/v)) and make it more lightweight binary (320~ kB) (it's seriously promising new prog. language and fun to try, they have an active community too on Discord).
+Both of above code already working nice, but I do some modification and mainly as an experiment to try new language ([V-lang](https://github.com/vlang/v)) and make it more lightweight binary (320~ kB) (it's seriously promising new prog. language and fun to try, they have an active community too on Discord).
 
 ### What It Can Do
 - Write/append string to file.
@@ -18,10 +18,10 @@ Both of above code already working nice, but I do some modification and mainly a
 ### Installation
 
 - Download the executable binary from [releases page](https://github.com/heronimus/ct-plugin-string2files/releases).
-- Give execute permission & copy to your path
+- Give execute permission & copy to your path (Unix)
   ```
   chmod +x string2files
-  mv string2files /usr/local/bin/string2files
+  mv string2files-v0.1.0 /usr/local/bin/string2files
   ```
 
 ### Usages
