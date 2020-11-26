@@ -1,5 +1,5 @@
 # Consul-Template Plugin: string2files
-Consul-Template plugin that (basically) write string to file(s). Created because I need easy way to write multiple files from Consul KV tree :v:.
+Lightweight Consul-Template plugin that (basically) write string to file(s). Created because I need easy way to write multiple files from Consul KV tree with only single template :v:.
 
 ### Credits
 This plugin heavily inspired by:
@@ -8,7 +8,16 @@ This plugin heavily inspired by:
 
 Both of above code already working nice, but I do some modification and mainly as an experiment to try new language ([V-lang](https://github.com/vlang/v)) and make it more lightweight binary (320~ kB) (it's seriously promising new prog. language and fun to try, they have an active community too on Discord).
 
-### What It Can Do
+### Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usages](#usages)
+- [Examples (as Consul Template Plugin)](#examples-as-consul-template-plugin)
+- [Examples (as Standalone Binary)](#examples-as-standalone-binary)
+- [References](#references)
+- [Build From Source](#build-from-source)
+
+### Features
 - Write/append string to file.
 - Split string and write them to multiple files.
 - Allow you to write **multiple files from Consul KV Tree** with only single Consul-Template file.
@@ -46,45 +55,9 @@ Arguments:
   create              <file-path> <content>
   explode             <base-path> <separator> <content>
 ```
-
-### Examples (execute binary directly):
-
-- Create file `/opt/files/key-example.txt` with file-content `value-example`:
-    ```
-    strings2files create /opt/files/key-example.txt "value-example"
-    ```
-    force directory creation if not exist (`-f`), and add new-line (`-nl`) on the end of the file.
-    ```
-    strings2files create -f -nl /opt/files/key-example.txt "value-example"
-    ```
-
 <br>
 
-- Append file-content `value-example` to`/opt/files/key-example.txt`:
-    ```
-    strings2files append /opt/files/key-example.txt "value-example-appended"
-    ```
-
-<br>
-
-- Explode combined key-value strings separated by delimiter:
-    ```
-    strings2files explode /opt/files/ ";" "key1.txt;value1;key2.txt;value2;child/key3;value3"
-    ```
-    will create following files tree:
-    ```
-    /opt/files/
-    │   key1.txt        value1
-    │   key2.txt        value2
-    │
-    └─── child/
-        │  key3.txt     value3
-
-    ```
-
-<br>
-
-### Examples (as Consul Template Plugin):
+### Examples (as Consul Template Plugin)
 These are just a few examples that bring me to create this plugin. Basically, this plugin only writes value given into a file, so it may have many possibilities how you can make use of this plugin.
 
 <br>
@@ -191,6 +164,42 @@ Use cases example:
       └─── db/
           │  db.conf       db.host="127.0.0.1:5432"
   ```
+<br>
+
+### Examples (as Standalone Binary)
+
+- Create file `/opt/files/key-example.txt` with file-content `value-example`:
+    ```
+    strings2files create /opt/files/key-example.txt "value-example"
+    ```
+    force directory creation if not exist (`-f`), and add new-line (`-nl`) on the end of the file.
+    ```
+    strings2files create -f -nl /opt/files/key-example.txt "value-example"
+    ```
+
+<br>
+
+- Append file-content `value-example` to`/opt/files/key-example.txt`:
+    ```
+    strings2files append /opt/files/key-example.txt "value-example-appended"
+    ```
+
+<br>
+
+- Explode combined key-value strings separated by delimiter:
+    ```
+    strings2files explode /opt/files/ ";" "key1.txt;value1;key2.txt;value2;child/key3;value3"
+    ```
+    will create following files tree:
+    ```
+    /opt/files/
+    │   key1.txt        value1
+    │   key2.txt        value2
+    │
+    └─── child/
+        │  key3.txt     value3
+
+    ```
 
 ### References
 More references about Consul Template and Consul Template plugin, please see official documentation:
