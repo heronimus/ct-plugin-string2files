@@ -7,7 +7,7 @@ fn (mut fw FileWriter) write_ofile() {
 		fw.ofile.writeln(fw.content)
 		return
 	}
-	fw.ofile.write(fw.content)
+	fw.ofile.write_string(fw.content)
 }
 
 fn (mut fw FileWriter) create_dir() {
