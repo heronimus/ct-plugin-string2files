@@ -8,7 +8,7 @@ fn main() {
 	mut cmd := Command{
 		name: 'string2files'
 		description: 'Consul-Template plugin that (basically) write string to file(s).'
-		version: '0.1.0'
+		version: '0.1.1'
 	}
 	// CLI Command
 	mut append_cmd := Command{
