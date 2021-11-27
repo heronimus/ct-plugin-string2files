@@ -8,7 +8,7 @@ fn main() {
 	mut cmd := Command{
 		name: 'string2files'
 		description: 'Consul-Template plugin that (basically) write string to file(s).'
-		version: '0.1.1'
+		version: '0.1.2'
 	}
 	// CLI Command
 	mut append_cmd := Command{
@@ -38,14 +38,14 @@ fn main() {
 		flag: .bool
 		name: 'force'
 		abbrev: 'f'
-		value: 'false'
+		value: ['false']
 		description: 'Create new directory/file from <path-file> if not exist.'
 	}
 	cli_flags << Flag{
 		flag: .bool
 		name: 'new-line'
 		abbrev: 'nl'
-		value: 'false'
+		value: ['false']
 		description: 'Add new line in the end of file.'
 	}
 	append_cmd.add_flags(cli_flags)
@@ -58,7 +58,7 @@ fn main() {
 	cmd.parse(os.args)
 }
 
-fn append_func(cmd Command) {
+fn append_func(cmd Command) ? {
 	flag_force := cmd.flags.get_bool('force') or {
 		panic('Failed to get `force` flag: $err')
 	}
@@ -76,7 +76,7 @@ fn append_func(cmd Command) {
 	fw.append_file()
 }
 
-fn create_func(cmd Command) {
+fn create_func(cmd Command) ? {
 	flag_force := cmd.flags.get_bool('force') or {
 		panic('Failed to get `force` flag: $err')
 	}
@@ -94,7 +94,7 @@ fn create_func(cmd Command) {
 	fw.create_file()
 }
 
-fn explode_func(cmd Command) {
+fn explode_func(cmd Command) ? {
 	mut flags := map[string]bool{}
 	flags['force'] = cmd.flags.get_bool('force') or {
 		panic('Failed to get `force` flag: $err')
