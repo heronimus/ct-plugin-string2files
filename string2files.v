@@ -59,11 +59,9 @@ fn main() {
 }
 
 fn append_func(cmd Command) ! {
-	flag_force := cmd.flags.get_bool('force') or {
-		panic('Failed to get `force` flag: $err')
-	}
+	flag_force := cmd.flags.get_bool('force') or { panic('Failed to get `force` flag: ${err}') }
 	flag_newline := cmd.flags.get_bool('new-line') or {
-		panic('Failed to get `new-line` flag: $err')
+		panic('Failed to get `new-line` flag: ${err}')
 	}
 	path := cmd.args[0]
 	content := cmd.args[1]
@@ -77,11 +75,9 @@ fn append_func(cmd Command) ! {
 }
 
 fn create_func(cmd Command) ! {
-	flag_force := cmd.flags.get_bool('force') or {
-		panic('Failed to get `force` flag: $err')
-	}
+	flag_force := cmd.flags.get_bool('force') or { panic('Failed to get `force` flag: ${err}') }
 	flag_newline := cmd.flags.get_bool('new-line') or {
-		panic('Failed to get `new-line` flag: $err')
+		panic('Failed to get `new-line` flag: ${err}')
 	}
 	path := cmd.args[0]
 	content := cmd.args[1]
@@ -96,11 +92,9 @@ fn create_func(cmd Command) ! {
 
 fn explode_func(cmd Command) ! {
 	mut flags := map[string]bool{}
-	flags['force'] = cmd.flags.get_bool('force') or {
-		panic('Failed to get `force` flag: $err')
-	}
+	flags['force'] = cmd.flags.get_bool('force') or { panic('Failed to get `force` flag: ${err}') }
 	flags['newline'] = cmd.flags.get_bool('new-line') or {
-		panic('Failed to get `new-line` flag: $err')
+		panic('Failed to get `new-line` flag: ${err}')
 	}
 	mut arguments := map[string]string{}
 	arguments['basepath'] = cmd.args[0]
