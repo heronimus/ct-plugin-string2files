@@ -58,7 +58,7 @@ fn main() {
 	cmd.parse(os.args)
 }
 
-fn append_func(cmd Command) ? {
+fn append_func(cmd Command) ! {
 	flag_force := cmd.flags.get_bool('force') or {
 		panic('Failed to get `force` flag: $err')
 	}
@@ -76,7 +76,7 @@ fn append_func(cmd Command) ? {
 	fw.append_file()
 }
 
-fn create_func(cmd Command) ? {
+fn create_func(cmd Command) ! {
 	flag_force := cmd.flags.get_bool('force') or {
 		panic('Failed to get `force` flag: $err')
 	}
@@ -94,7 +94,7 @@ fn create_func(cmd Command) ? {
 	fw.create_file()
 }
 
-fn explode_func(cmd Command) ? {
+fn explode_func(cmd Command) ! {
 	mut flags := map[string]bool{}
 	flags['force'] = cmd.flags.get_bool('force') or {
 		panic('Failed to get `force` flag: $err')
