@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM hashicorp/vault:1.6.2
+FROM --platform=$BUILDPLATFORM hashicorp/vault:1.8.0
 
 ARG TARGETPLATFORM
 ARG TARGETOS
