@@ -26,7 +26,7 @@ RUN git clone https://github.com/vlang/v \
 RUN ln -s /v/v /usr/local/bin/v
 
 # Clone the ct-plugin-string2files repository
-RUN git clone https://github.com/heronimus/ct-plugin-string2files.git \
+RUN git clone https://github.com/dubizzle/ct-plugin-string2files.git \
     && cd ct-plugin-string2files \
     && v string2files.v \
     && chmod +x string2files \
