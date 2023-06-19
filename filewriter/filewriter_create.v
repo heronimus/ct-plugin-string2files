@@ -9,7 +9,7 @@ pub fn (mut fw FileWriter) create_file() {
 	}
 	// create & write file
 	fw.ofile = os.create(fw.path) or {
-		fw.logger.error('error while create file: $err')
+		fw.logger.error('error while create file: ${err}')
 		exit(1)
 	}
 	defer {

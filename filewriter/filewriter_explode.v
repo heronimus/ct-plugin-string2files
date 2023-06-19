@@ -12,7 +12,7 @@ pub fn explode_data(args map[string]string, flags map[string]bool) {
 		exit(1)
 	}
 	if content_split.len % 2 != 0 {
-		fw.logger.warn('($content_split) k/v pair is not even, ommiting uncomplete k/v.')
+		fw.logger.warn('(${content_split}) k/v pair is not even, ommiting uncomplete k/v.')
 		content_split = content_split[0..(content_split.len - 1)]
 	}
 	// Loops splited data

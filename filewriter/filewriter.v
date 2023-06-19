@@ -5,10 +5,10 @@ import log
 
 pub struct FileWriter {
 mut:
-	ofile      os.File
-	logger     log.Log = log.Log{
-	level: .info
-}
+	ofile  os.File
+	logger log.Log = log.Log{
+		level: .info
+	}
 pub mut:
 	path       string
 	content    string
