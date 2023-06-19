@@ -1,6 +1,8 @@
 # Consul-Template Plugin: string2files
 Lightweight Consul-Template plugin that (basically) write string to file(s). Created because I need easy way to write multiple files from Consul KV tree with only single template :v:.
 
+Build with V language compiler: `V 0.2.4 8315e82`.
+
 ### Credits
 This plugin heavily inspired by:
 - [tam7t/certdump.go Gist](https://gist.github.com/tam7t/1b45125ae4de13b3fc6fd0455954c08e)
@@ -237,7 +239,8 @@ This plugin written in V, so you must have V compiler installed.
   ```
 
 - Binary will created at working directory (`string2files` / `string2files.exe` for Windows)
-> *Notes: V allows you to cross compilation by passing flag `-os <windows/linux>`, macOS binary only can be compiled on macOS platform.
+> *Notes: V allows you to cross compilation by passing flag `-os <windows/linux>`, m  acOS binary only can be compiled on macOS platform.
+> *Build with V compiler version: V 0.2.4 8315e82
 
 ### More About V
 Please visit official website and docs:
