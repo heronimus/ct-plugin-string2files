@@ -38,14 +38,14 @@ fn main() {
 		flag: .bool
 		name: 'force'
 		abbrev: 'f'
-		value: ['false']
+		default_value: ['false']
 		description: 'Create new directory/file from <path-file> if not exist.'
 	}
 	cli_flags << Flag{
 		flag: .bool
 		name: 'new-line'
 		abbrev: 'nl'
-		value: ['false']
+		default_value: ['false']
 		description: 'Add new line in the end of file.'
 	}
 	append_cmd.add_flags(cli_flags)
@@ -71,6 +71,7 @@ fn append_func(cmd Command) ! {
 		is_force: flag_force
 		is_newline: flag_newline
 	}
+	fw.logger.set_level(.info)
 	fw.append_file()
 }
 

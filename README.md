@@ -1,7 +1,7 @@
 # Consul-Template Plugin: string2files
 Lightweight Consul-Template plugin that (basically) write string to file(s). Created because I need easy way to write multiple files from Consul KV tree with only single template :v:.
 
-Build with V language compiler: `V 0.2.4 8315e82`.
+*(Update 2024-10-26) Build with V language compiler: `V 0.4.8 14b1a14`*
 
 ### Credits
 This plugin heavily inspired by:
@@ -76,7 +76,7 @@ For Example: given below items on Consul KV & Vault Secret:
 - Vault Secret:
   ```
   secret/myservices
-      │   app.conf        
+      │   app.conf
       |      - app.token    "s3cr3t-t0k3n"
       │
       └─── db/db.conf
